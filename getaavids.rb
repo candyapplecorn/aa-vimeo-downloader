@@ -69,8 +69,13 @@ end
 class Credentials 
 	attr_reader :day, :url, :vimeo_password
 	def initialize
-			@day = ARGV.find {|a| a =~ /w\d+d\d+/i} .upcase
+			@day = ARGV.find {|a| a =~ /w\d+d\d+/i}
 			@url = ARGV.find {|a| a =~ /raw.githubusercontent/}
+
+			abort("Must provide a URL to a README.md RAW") unless @url
+			abort("Must provde a day") unless @day
+
+			@day.upcase!
 			@vimeo_password = get_vimeo_password
 	end
 	private
