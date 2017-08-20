@@ -3,8 +3,8 @@ ruby=`which ruby`
 
 function add_alias() {
 	cd ~/.aa-vimeo-downloader
-	aa-vimeo-downloader=`find $HOME/.aa-vimeo-downloader -iname "getaa*" -print`
-	echo "alias def-clear='"$ruby" "$aa-vimeo-downloader"'" >> $1
+	aavimeodownloader=$PWD/getaavids.rb
+	echo "alias getaavids='"$ruby" "$aavimeodownloader"'" >> $1
 }
 
 if 	[ -e ~/.aliases ]
