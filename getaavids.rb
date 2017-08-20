@@ -77,6 +77,7 @@ class Credentials
 
 			@day = @day.upcase
 			@vimeo_password = get_vimeo_password
+			p ''
 	end
 	private
 	def get_vimeo_password
