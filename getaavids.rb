@@ -1,8 +1,5 @@
-# USE a RAW
-
 require 'open-uri'
 require 'io/console'
-require 'byebug'	
 require 'pty'
 
 class GitRaw
