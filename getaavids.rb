@@ -1,3 +1,4 @@
+require 'byebug'
 require 'open-uri'
 require 'io/console'
 require 'pty'
@@ -93,7 +94,8 @@ def make_video_dir(creds, links)
 	p "Created the directory #{vdirname}"
 
 	links.each do |name, link| 
-		if Dir.entries('.').find {|e| e == name}
+					debugger
+		if Dir.entries('.').find { |e| e.index name }
 			puts "#{name} already exists; continuing to next video"
 		else
 			get_video(name, link, creds.vimeo_password)
