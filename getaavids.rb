@@ -75,7 +75,7 @@ class Credentials
 			abort("Must provide a URL to a README.md RAW") unless @url
 			abort("Must provde a day") unless @day
 
-			@day.upcase!
+			@day = @day.upcase
 			@vimeo_password = get_vimeo_password
 	end
 	private
