@@ -41,7 +41,7 @@ def has_youtube_dl?
 	if `which youtube-dl` =~ /^$/
 		print <<~HEREDOC
 
-				The dependancy 'youtube_dl' is not installed.
+				The dependency 'youtube_dl' is not installed.
 				To install this program, see 
 				https://rg3.github.io/youtube-dl/download.html
 
