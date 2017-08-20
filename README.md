@@ -49,3 +49,7 @@ The alias will allow the user to run _getaavids.rb_ by entering `getaavids` in t
 
 This program requires youtube-dl. I've added an automatic installer to the program, so the user doesn't have to install it manually.
 If you'd like to install it manually, refer to its website: [https://rg3.github.io/youtube-dl/](https://rg3.github.io/youtube-dl/)
+
+## Video Playback
+
+If you don't have a video player which allows the playback speed to be adjusted, consider giving VLC a try. [https://www.videolan.org/vlc/index.html](https://www.videolan.org/vlc/index.html)
