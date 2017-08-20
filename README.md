@@ -24,6 +24,18 @@ navigate to the user's _Videos_ directory before running this script!
 
 ## Install
 
+### via copy-pasting this shell script into your terminal:
+```bash
+cd && \
+git clone https://github.com/candyapplecorn/aa-vimeo-downloader.git && \
+mv aa-vimeo-downloader .aa-vimeo-downloader && \
+cd .aa-vimeo-downloader && \
+bash install.sh && \
+exec bash
+```
+
+### Manual:
+
 After cloning this repository, run the install shell script like so:
 
 ```bash 
