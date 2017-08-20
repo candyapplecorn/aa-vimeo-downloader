@@ -102,7 +102,7 @@ def make_video_dir(creds, links)
 
 	p "#{vdirname} successfully created with #{Dir.entries('.').reject{|e| e =~ /^\./}.count} videos"
 
-	p `ls -1`
+	print `ls -1`
 end
 
 def get_video(name, link, pass)
