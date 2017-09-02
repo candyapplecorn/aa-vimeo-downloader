@@ -73,7 +73,7 @@ class Credentials
     @url = ARGV.find { |a| a =~ /raw.githubusercontent/ }
 
     abort("Must provide a URL to a README.md RAW") unless @url
-    abort("Must provde a day") unless @day
+    abort("Must provide a day") unless @day
 
     @day = @day.upcase
     @vimeo_password = get_vimeo_password
