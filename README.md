@@ -45,6 +45,16 @@ bash install.sh
 This will add an alias to your `.profile`, `.bashrc`, `.asliases` or .`zshrc`, whichever one is found first.
 The alias will allow the user to run _getaavids.rb_ by entering `getaavids` in the command line.
 
+#### Troubleshooting:
+
+If the script fails and you're using a Mac, try installing youtube-dl through brew. Once that's done, restart bash and try using the alias again (you can list all your aliases with ```alias -p```).
+
+```bash
+brew install youtube-dl
+exec bash
+getaavids ...
+```
+
 ## Dependencies
 
 This program requires youtube-dl. I've added an automatic installer to the program, so the user doesn't have to install it manually.
