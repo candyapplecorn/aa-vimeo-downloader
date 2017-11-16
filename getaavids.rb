@@ -22,8 +22,10 @@ class LinkParser
   def narrow_to_week_section(body, target)
     links = []
 
-    body.shift until body.first =~ Regexp.new("[^\\[#]#{target}", 'i')
-    links << body.shift until body.first =~ /homeworks|additional resources|projects/i
+    unless target =~ /all/i
+      body.shift until body.first =~ Regexp.new("[^\\[#]#{target}", 'i')
+      links << body.shift until body.first =~ /homeworks|additional resources|projects/i
+    end
 
     body = links.select! { |l| l =~ /vimeo/ }
   end
@@ -42,11 +44,11 @@ def has_youtube_dl?
   if `which youtube-dl` =~ /^$/
     print <<~HEREDOC
     The dependency 'youtube_dl' is not installed.
-    To install this program, see 
+    To install this program, see
     https://rg3.github.io/youtube-dl/download.html
 
     Are you using OSX or Linux and would like to
-    install youtube_dl automatically? 
+    install youtube_dl automatically?
     HEREDOC
 
     print "[Y/N]: "
@@ -66,14 +68,14 @@ def install_youtube_dl
   `which youtube-dl` =~ /^$/
 end
 
-class Credentials 
+class Credentials
   attr_reader :day, :url, :vimeo_password
   def initialize
-    @day = ARGV.find { |a| a =~ /w\d+d\d+/i }
+    @day = ARGV.find { |a| a =~ /w\d+d\d+|all/i }
     @url = ARGV.find { |a| a =~ /raw.githubusercontent/ }
 
     abort("Must provide a URL to a README.md RAW") unless @url
-    abort("Must provide a day") unless @day
+    abort("Must provide a day like 'w4d1' OR '--all'") unless @day
 
     @day = @day.upcase
     @vimeo_password = get_vimeo_password
@@ -94,7 +96,7 @@ def make_video_dir(creds, links)
   Dir.chdir  vdirname
   p "Created the directory #{vdirname}"
 
-  links.each do |name, link| 
+  links.each do |name, link|
     if Dir.entries('.').find { |e| e.index name }
       puts "#{name} already exists; continuing to next video"
     else
@@ -130,4 +132,3 @@ if $PROGRAM_NAME == __FILE__
   links = LinkParser.new(raw, creds)
   make_video_dir(creds, links.links)
 end
-
