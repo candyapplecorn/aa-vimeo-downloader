@@ -1,0 +1,16 @@
+GEM
+  specs:
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
+    youtube-dl.rb (0.3.1.2016.09.11.1)
+      cocaine (>= 0.5.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  youtube-dl.rb
+
+BUNDLED WITH
+   1.16.0.pre.3

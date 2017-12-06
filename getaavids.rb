@@ -1,6 +1,8 @@
 require 'open-uri'
 require 'io/console'
 require 'pty'
+# No installation! Wew!
+require 'youtube-dl'
 
 class GitRaw
   attr_reader :body
