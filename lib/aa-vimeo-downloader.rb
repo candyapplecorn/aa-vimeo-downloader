@@ -134,10 +134,21 @@ def get_video(name, link, pass)
 #  end
 end
 
+class Aa_vimeo_downloader
+  def initialize
+    creds = Credentials.new
+    raw = GitRaw.new creds.url
+    links = LinkParser.new(raw, creds)
+    make_video_dir(creds, links.links)
+  end
+end
+
 if $PROGRAM_NAME == __FILE__
   #has_youtube_dl? # This will go since ruby binding should work
-  creds = Credentials.new
-  raw = GitRaw.new creds.url
-  links = LinkParser.new(raw, creds)
-  make_video_dir(creds, links.links)
+#  creds = Credentials.new
+#  raw = GitRaw.new creds.url
+#  links = LinkParser.new(raw, creds)
+#  make_video_dir(creds, links.links)
+  Aa_vimeo_downloader.new
 end
+
