@@ -46,7 +46,18 @@ Example of an executable gem: [https://github.com/qrush/hola](https://github.com
 The 1st parts here are helpful: [https://bundler.io/v1.13/guides/creating_gem](https://bundler.io/v1.13/guides/creating_gem)
 </details>
 
+### How to Update this Gem
+
+1. Update the version in ```lib/aavimeodl/version.rb``` using major/minor
+2. Run ```rake build```
+3. ```gem push pkg/newest_version```
+
+
+### Old Readme
+
 <details><summary>Old README.md</summary>
+
+
 ## Install
 
 ### via copy-pasting this shell script into your terminal:
