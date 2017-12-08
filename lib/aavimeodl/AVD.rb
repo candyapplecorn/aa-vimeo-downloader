@@ -1,7 +1,4 @@
 require 'open-uri'
-require 'io/console'
-require 'pty'
-# No installation! Wew!
 require 'youtube-dl'
 
 class GitRaw
@@ -40,35 +37,6 @@ class LinkParser
 
     unparsed_links.each { |unparsed| @links[unparsed] }
   end
-end
-
-# should be able to remove this once binding works correctly
-def has_youtube_dl?
-  if `which youtube-dl` =~ /^$/
-    print <<~HEREDOC
-    The dependency 'youtube_dl' is not installed.
-    To install this program, see
-    https://rg3.github.io/youtube-dl/download.html
-
-    Are you using OSX or Linux and would like to
-    install youtube_dl automatically?
-    HEREDOC
-
-    print "[Y/N]: "
-
-    if STDIN.gets =~ /y/i
-      raise "Install failed; please install manually" unless install_youtube_dl
-      return true
-    else
-      abort('Install youtube_dl to use this program')
-    end
-  end
-end
-
-def install_youtube_dl
-  `sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl`
-  `sudo chmod a+rx /usr/local/bin/youtube-dl`
-  `which youtube-dl` =~ /^$/
 end
 
 class Credentials
@@ -115,23 +83,11 @@ end
 # Replace this with ruby binding
 def get_video(name, link, pass)
   title = "#{name}.%(ext)s"
-  command = %{youtube-dl --video-password "#{pass}" -o "#{title}" #{link}}
 
 	YoutubeDL.download link, {
 					"video-password": pass,
 					"o": title
 	}
-
-#  begin
-#    PTY.spawn(command) do |stdout, _stdin, _pid|
-#      begin
-#         stdout.each { |line| print line }
-#       rescue Errno::EIO
-#       end
-#    end
-#  rescue PTY::ChildExited
-#    puts "The child process exited!"
-#  end
 end
 
 class Aavimeodl::AVD
@@ -144,11 +100,6 @@ class Aavimeodl::AVD
 end
 
 if $PROGRAM_NAME == __FILE__
-  #has_youtube_dl? # This will go since ruby binding should work
-#  creds = Credentials.new
-#  raw = GitRaw.new creds.url
-#  links = LinkParser.new(raw, creds)
-#  make_video_dir(creds, links.links)
   Aavimeodl::AVD.new
 end
 
