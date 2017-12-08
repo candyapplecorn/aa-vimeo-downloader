@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'byebug'
+require_relative '../lib/aavimeodl'
+
+Aavimeodl.run

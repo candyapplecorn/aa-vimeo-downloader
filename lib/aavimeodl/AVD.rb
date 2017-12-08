@@ -134,7 +134,7 @@ def get_video(name, link, pass)
 #  end
 end
 
-class Aa_vimeo_downloader
+class Aavimeodl::AVD
   def initialize
     creds = Credentials.new
     raw = GitRaw.new creds.url
@@ -149,6 +149,6 @@ if $PROGRAM_NAME == __FILE__
 #  raw = GitRaw.new creds.url
 #  links = LinkParser.new(raw, creds)
 #  make_video_dir(creds, links.links)
-  Aa_vimeo_downloader.new
+  Aavimeodl::AVD.new
 end
 
