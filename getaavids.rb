@@ -42,6 +42,7 @@ class LinkParser
   end
 end
 
+# should be able to remove this once binding works correctly
 def has_youtube_dl?
   if `which youtube-dl` =~ /^$/
     print <<~HEREDOC
@@ -111,24 +112,30 @@ def make_video_dir(creds, links)
   print `ls -1`
 end
 
+# Replace this with ruby binding
 def get_video(name, link, pass)
   title = "#{name}.%(ext)s"
   command = %{youtube-dl --video-password "#{pass}" -o "#{title}" #{link}}
 
-  begin
-    PTY.spawn(command) do |stdout, _stdin, _pid|
-      begin
-         stdout.each { |line| print line }
-       rescue Errno::EIO
-       end
-    end
-  rescue PTY::ChildExited
-    puts "The child process exited!"
-  end
+	YoutubeDL.download link, {
+					"video-password": pass,
+					"o": title
+	}
+
+#  begin
+#    PTY.spawn(command) do |stdout, _stdin, _pid|
+#      begin
+#         stdout.each { |line| print line }
+#       rescue Errno::EIO
+#       end
+#    end
+#  rescue PTY::ChildExited
+#    puts "The child process exited!"
+#  end
 end
 
 if $PROGRAM_NAME == __FILE__
-  has_youtube_dl?
+  #has_youtube_dl? # This will go since ruby binding should work
   creds = Credentials.new
   raw = GitRaw.new creds.url
   links = LinkParser.new(raw, creds)
