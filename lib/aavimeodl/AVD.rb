@@ -1,4 +1,6 @@
 require 'open-uri'
+require 'io/console'
+require 'pty'
 require 'youtube-dl'
 
 class GitRaw
