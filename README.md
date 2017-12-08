@@ -67,3 +67,11 @@ If you don't have a video player which allows the playback speed to be adjusted,
 ## How I Turned this Into a Gem:
 
 [http://guides.rubygems.org/make-your-own-gem/](http://guides.rubygems.org/make-your-own-gem/)
+
+[http://robdodson.me/how-to-write-a-command-line-ruby-gem/](http://robdodson.me/how-to-write-a-command-line-ruby-gem/)
+
+[http://guides.rubygems.org/specification-reference/#add_runtime_dependency](http://guides.rubygems.org/specification-reference/#add_runtime_dependency)
+
+Example of an executable gem: [https://github.com/qrush/hola](https://github.com/qrush/hola), and the directions: [http://guides.rubygems.org/make-your-own-gem/#requiring-more-files](http://guides.rubygems.org/make-your-own-gem/#requiring-more-files)
+
+The 1st parts here are helpful: [https://bundler.io/v1.13/guides/creating_gem](https://bundler.io/v1.13/guides/creating_gem)
