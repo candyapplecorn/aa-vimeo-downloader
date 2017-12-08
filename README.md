@@ -63,3 +63,7 @@ If you'd like to install it manually, refer to its website: [https://rg3.github.
 ## Video Playback
 
 If you don't have a video player which allows the playback speed to be adjusted, consider giving VLC a try. [https://www.videolan.org/vlc/index.html](https://www.videolan.org/vlc/index.html)
+
+## How I Turned this Into a Gem:
+
+[http://guides.rubygems.org/make-your-own-gem/](http://guides.rubygems.org/make-your-own-gem/)
