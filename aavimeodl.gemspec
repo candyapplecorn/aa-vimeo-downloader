@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["candyapplecorn@gmail.com"]
 
   spec.summary       = %q{Downloads private App Academy videos from Vimeo}
-  spec.homepage      = "https://github.com/candyapplecorn/aa-vimeo-downloader/tree/youtube-dl_ruby_bindings"
+  spec.homepage      = "http://github.com/candyapplecorn/aa-vimeo-downloader/tree/youtube-dl_ruby_bindings"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
